@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<parameter name="browserName" value="Chrome" />
+	<parameter name="url"
+		value="https://opensource-demo.orangehrmlive.com/" />
+	<parameter name="username" value="Admin" />
+	<parameter name="password" value="admin123" />
+	<parameter name="sleepTime" value="3000" />
+	<test name="OrangeHRM_Login">
+		<classes>
+			<class name="com.AllPages.com.OrangeHRM_Login">
+				<methods>
+					<include name="TC_004()" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="OrangeHRM_quickLanguageTest">
+		<parameter name="browserName" value="Edge" /> <!-- when pass parameters in test level it has HighSest priority -->
+		<classes>
+			<class name="com.AllPages.com.quickLanguageTest" />
+		</classes>
+	</test>
+	
+	<test name="OrangeHRM_quickLanguageTest">
+	
+		<classes>
+			<class name="com.AllPages.com.RecruitmentTest" />
+		</classes>
+	</test>
+	
+
+
+
+
+
+	<!-- OrangeHRM_Login -->
+</suite> <!-- Suite -->
