@@ -1,15 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
+	<groups><!--Suite level group  -->
+		<run>
+			<include name="suiteLvl" />
+		</run>
+	</groups>
 	<test name="Test1">
+		<groups>
+			<define name="DailyBuild">  <!-- Meta Groups -->
+				<include name="sanity" />
+				<include name="functional" />
+			</define>
+			<define name="WeeklyBuild">
+				<include name="smoke" />
+				<include name="sanity" />
+				<include name="functional" />
+			</define>
+			<run>
+				<include name="DailyBuild" />
+				<!-- <include name="smoke" /> 
+				<exclude name="functional" /> -->  <!-- Exclusive Groups -->
+			</run>
+
+		</groups>
 		<classes>
 			<class name="com.AllPages.com.STCM_Test">
-				<methods>
-					<include name="testCase001" />
-					<include name="testCase002" />
-				</methods>
-
+				<!-- <methods> <include name="testCase1" /> <include name="testCase002" 
+					/> </methods> -->
 			</class>
 		</classes>
 	</test> <!-- Test1 -->
+	<test name="Test2">
+		<groups>
+			<run>
+				<include name="smoke" />
+				<include name="windows.sanity" /><!--<include name="windows.*" />  -->
+				
+			</run>
+
+		</groups>
+		<classes>
+			<class name="com.AllPages.com.STCM_Test">
+				<!-- <methods> <include name="testCase1" /> <include name="testCase002" 
+					/> </methods> -->
+			</class>
+		</classes>
+	</test>
 </suite> <!-- Suite -->
